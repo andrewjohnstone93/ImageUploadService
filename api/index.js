@@ -8,6 +8,7 @@ import images from './route/images';
 
 import { jwtMiddleWare, proctectRoute } from './util/JwtHelpers';
 import { config } from './config/config'
+import { serve } from './controller/ImageSocket';
 
 //Connect to MongoDB
 Promise = global.Promise;
@@ -28,6 +29,9 @@ app.use('/images', proctectRoute, images);
 const server = createServer(app).listen(config().PORT_NUMBER, function(){
     console.log("API Service listening on port 4000");
 });
+
+//Run Socket.IO Server
+serve(server);
 
 //Export server for testing
 module.exports = server;
