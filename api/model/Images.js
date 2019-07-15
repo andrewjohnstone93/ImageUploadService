@@ -2,23 +2,27 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-    username: {
+const ImageSchema = new Schema({
+    uploader: {
         type: String,
         trim: true,  
         required: true,
-        unique: true,
     },
-    password: {
+    date: {
+        type: Date,
+        trim: true,
+        required: true,
+    },
+    label: {
         type: String,
         trim: true,
         required: true,
     },
-    salt: {
-        type: String,
+    image: {
+        type: Buffer,
         trim: true,
-        required: true,
-    },
+        required: false,
+    }
 });
 
-module.exports = UserSchema;
+module.exports = ImageSchema;
