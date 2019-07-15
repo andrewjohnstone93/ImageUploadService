@@ -4,6 +4,8 @@ import { connect } from 'mongoose';
 import { createServer } from 'http';
 
 import users from './route/users';
+import images from './route/images';
+
 import { jwtMiddleWare, proctectRoute } from './util/JwtHelpers';
 import { config } from './config/config'
 
@@ -20,6 +22,7 @@ app.use(json());
 //Setup Routes 
 app.get('/', (req, res) => {res.send('Encrypted Image Hosting Service API');});
 app.use('/users', users);
+app.use('/images', proctectRoute, images);
 
 //Run Express Server
 const server = createServer(app).listen(config().PORT_NUMBER, function(){
