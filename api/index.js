@@ -3,20 +3,26 @@ import { urlencoded, json } from 'body-parser';
 import { connect } from 'mongoose';
 import { createServer } from 'http';
 
+import users from './route/users';
+import { jwtMiddleWare, proctectRoute } from './util/JwtHelpers';
+import { config } from './config/config'
+
 //Connect to MongoDB
 Promise = global.Promise;
-connect("mongodb://mongo:27017/imageHost").catch(err => { console.error('Error Connecting to MongoDB:', err.stack) })
+connect(config().MONGODB_CONNECTION).catch(err => { console.error('Error Connecting to MongoDB:', err.stack) })
 
 //Setup Express & Middleware
 const app = express();
+app.use(jwtMiddleWare)
 app.use(urlencoded({ extended: true }))
 app.use(json());
 
 //Setup Routes 
 app.get('/', (req, res) => {res.send('Encrypted Image Hosting Service API');});
+app.use('/users', users);
 
 //Run Express Server
-const server = createServer(app).listen(4000, function(){
+const server = createServer(app).listen(config().PORT_NUMBER, function(){
     console.log("API Service listening on port 4000");
 });
 
