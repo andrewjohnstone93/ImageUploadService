@@ -1,0 +1,23 @@
+FROM node:8.7.0-alpine
+
+#Create app directory
+RUN mkdir -p /app/server
+WORKDIR /app/server
+
+#Copy package info and install packages on container
+COPY package.json /app/server
+COPY package-lock.json /app/server
+
+RUN npm install
+
+#Comple ES6 to ES5
+CMD ["npm", "run build"]
+
+#Copy application code to container
+COPY ./dist/ /app/server
+
+#Run tests
+CMD ["npm", "test"]
+
+#Start applcation
+CMD ["npm", "serve"]

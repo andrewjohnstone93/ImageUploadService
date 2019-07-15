@@ -1,0 +1,17 @@
+FROM node:8.7.0-alpine
+
+#Create app directory
+RUN mkdir -p /app/client
+WORKDIR /app/client
+
+#Copy package info and install packages on container
+COPY package.json /app/client
+COPY package-lock.json /app/client
+
+RUN npm install
+
+#Copy application code to container
+COPY . /app/client
+
+#Start applcation
+CMD ["npm", "run dev"]

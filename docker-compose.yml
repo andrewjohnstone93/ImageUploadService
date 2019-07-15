@@ -1,0 +1,42 @@
+version: '3'
+services:
+########################################
+#            Node container            #
+########################################
+  server:
+    build: ./api
+    expose:
+      - 4000
+    environment:
+      NODE_HOST: http://localhost:4000
+      NODE_PORT: 4000
+    ports:
+      - 4000:4000
+    volumes:
+      - ./api:/app/server
+    links:
+      - mongo
+    command: npm start
+########################################
+#            next container           #
+########################################
+  client:
+    build: ./web
+    expose:
+      - 3000
+    environment:
+      - REACT_PORT=3000
+    ports:
+      - 3000:3000
+    volumes:
+      - ./web:/app/client
+    links:
+      - server
+    command: npm run dev
+########################################
+#            Mongo container           #
+########################################
+  mongo:
+    image: mongo
+    ports:
+    - "27017:27017"
