@@ -13,6 +13,10 @@ const Header = () => {
     Router.push("/upload"); 
   }
 
+  function onClickView() {
+    Router.push("/view"); 
+  }
+
   function onClickLogout() {
     cookies.remove("token")
     Router.push("/"); 
@@ -27,6 +31,9 @@ const Header = () => {
           </Typography>
           
           {cookies.get("token") ? (<div>
+          <Button color="inherit" onClick={onClickView}>
+              View Images
+          </Button>
           <Button color="inherit" onClick={onClickUpload}>
               Upload
           </Button>

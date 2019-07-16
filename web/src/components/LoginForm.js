@@ -69,7 +69,7 @@ export default class LoginForm extends React.Component {
             <div>
               <Typography component="h1" variant="h5">
                 Sign in
-            </Typography>
+              </Typography>
 
               <Typography component="h4" variant="h5" style={{color:"#ff0000"}}>
                 {this.state.message}
