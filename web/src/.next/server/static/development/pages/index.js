@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -696,7 +696,7 @@ function (_React$Component) {
         margin: "normal",
         required: true,
         fullWidth: true,
-        id: "username",
+        id: "loginUsername",
         label: "Username",
         name: "username",
         autoComplete: "username",
@@ -715,7 +715,7 @@ function (_React$Component) {
         name: "password",
         label: "Password",
         type: "password",
-        id: "password",
+        id: "loginPassword",
         onChange: this.handlePasswordChange,
         autoComplete: "current-password",
         __source: {
@@ -1151,7 +1151,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

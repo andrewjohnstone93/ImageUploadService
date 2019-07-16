@@ -81,7 +81,7 @@ export default class LoginForm extends React.Component {
                   margin="normal"
                   required
                   fullWidth
-                  id="username"
+                  id="loginUsername"
                   label="Username"
                   name="username"
                   autoComplete="username"
@@ -96,7 +96,7 @@ export default class LoginForm extends React.Component {
                   name="password"
                   label="Password"
                   type="password"
-                  id="password"
+                  id="loginPassword"
                   onChange={this.handlePasswordChange}
                   autoComplete="current-password"
                 />

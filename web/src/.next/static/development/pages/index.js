@@ -45117,7 +45117,7 @@ function (_React$Component) {
         margin: "normal",
         required: true,
         fullWidth: true,
-        id: "username",
+        id: "loginUsername",
         label: "Username",
         name: "username",
         autoComplete: "username",
@@ -45136,7 +45136,7 @@ function (_React$Component) {
         name: "password",
         label: "Password",
         type: "password",
-        id: "password",
+        id: "loginPassword",
         onChange: this.handlePasswordChange,
         autoComplete: "current-password",
         __source: {
@@ -45564,7 +45564,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!****************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cindex.js ***!
   \****************************************************************************************************************************************************************/
@@ -45587,5 +45587,5 @@ module.exports = dll_eca3f212c83fe644b694;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

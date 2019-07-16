@@ -14,7 +14,7 @@ import handleAuth from '../util/handleAuth'
 
 const cookies = new Cookies();
 
-class Internal extends React.Component {  
+class Internal extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,39 +25,49 @@ class Internal extends React.Component {
 
   async componentDidMount() {
     axios.get("http://localhost:4000/images/getAllMetadata", { headers: { 'Authorization': 'bearer ' + cookies.get('token') } })
-    .then(res => {
-      console.log("res: " + res.data.images)
-      const images = res.data.images;
-      this.setState({ images });
-    })
+      .then(res => {
+        const images = res.data.images;
+        this.setState({ images });
+      })
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <div>
-          <GridList cellHeight={300} cols={6}>
-            {this.state.images.map(image => (
-              <GridListTile key={image.id}>
-                <img src="http://placekitten.com/300/300" />
-                <GridListTileBar
-                  title={image.label}
-                  subtitle={<span>Uploaded: {image.date}</span>}
-                  actionIcon={
-                    <div>
-                      <IconButton>
-                        <DeleteIcon />
-                      </IconButton>
-                      <IconButton>
-                        <ShareIcon />
-                      </IconButton>
-                    </div>} />
-              </GridListTile>
-            ))}
-          </GridList>
-        </div>
-      </React.Fragment>
-    );
+    if (this.state.images != []) {
+      return (
+        <React.Fragment>
+          <div>
+            <GridList cellHeight={300} cols={6}>
+              {this.state.images.map(image => (
+                <GridListTile key={image.id}>
+                  <img src="http://placekitten.com/300/300" />
+                  <GridListTileBar
+                    title={image.label}
+                    subtitle={<span>Uploaded: {image.date}</span>}
+                    actionIcon={
+                      <div>
+                        <IconButton>
+                          <DeleteIcon />
+                        </IconButton>
+                        <IconButton>
+                          <ShareIcon />
+                        </IconButton>
+                      </div>} />
+                </GridListTile>
+              ))}
+            </GridList>
+          </div>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <div>
+            <h1>No images uploaded yet.</h1>
+          </div>
+        </React.Fragment>
+      );
+    }
+
   }
 }
 

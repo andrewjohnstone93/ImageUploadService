@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -538,7 +538,6 @@ function (_React$Component) {
                     'Authorization': 'bearer ' + cookies.get('token')
                   }
                 }).then(function (res) {
-                  console.log("res: " + res.data.images);
                   var images = res.data.images;
 
                   _this2.setState({
@@ -563,88 +562,110 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_8___default.a, {
-        cellHeight: 300,
-        cols: 6,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
-      }, this.state.images.map(function (image) {
-        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_9___default.a, {
-          key: image.id,
+      if (this.state.images != []) {
+        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 37
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
-          src: "http://placekitten.com/300/300",
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 38
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10___default.a, {
-          title: image.label,
-          subtitle: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 45
-            },
-            __self: this
-          }, "Uploaded: ", image.date),
-          actionIcon: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 47
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default.a, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 48
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12___default.a, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 49
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default.a, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 51
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13___default.a, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 52
-            },
-            __self: this
-          }))),
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_8___default.a, {
+          cellHeight: 300,
+          cols: 6,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 39
           },
           __self: this
-        }));
-      }))));
+        }, this.state.images.map(function (image) {
+          return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_9___default.a, {
+            key: image.id,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
+            src: "http://placekitten.com/300/300",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 42
+            },
+            __self: this
+          }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10___default.a, {
+            title: image.label,
+            subtitle: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 45
+              },
+              __self: this
+            }, "Uploaded: ", image.date),
+            actionIcon: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 47
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default.a, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 48
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12___default.a, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 49
+              },
+              __self: this
+            })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default.a, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 51
+              },
+              __self: this
+            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13___default.a, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 52
+              },
+              __self: this
+            }))),
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 43
+            },
+            __self: this
+          }));
+        }))));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65
+          },
+          __self: this
+        }, "No images uploaded yet.")));
+      }
     }
   }]);
 
@@ -771,7 +792,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!*********************************!*\
   !*** multi ./pages/internal.js ***!
   \*********************************/
