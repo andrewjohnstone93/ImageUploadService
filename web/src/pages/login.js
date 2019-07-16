@@ -1,97 +1,109 @@
-import Header from "../components/header";
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-export default class extends React.Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          email: "",
-          password: ""
-        };
-    }
+import axios from 'axios';
+import { Cookies } from 'react-cookie';
+import Router from 'next/router';
 
-    validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0;
+const LOGIN_END_POINT = 'http://localhost:4000/users/authenticate'
+const cookies = new Cookies();
+
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: cookies.get('token') || null,
+      username: "",
+      password: "",
     }
-    
-    handleSubmit(context) {
-        if (context && context.req) {
-            context.res.writeHead(302, {Location: `/dashboard`})
-            context.res.end()
-        }
+  }
+
+  getInitialState = function () {
+    return { username: '', password: '' };
+  }
+
+  handleChange = function (event) {
+    this.setState({ username: event.target.value, password: event.target.value });
+  }
+
+  onLoginClick = async () => {
+    console.log("Login called");
+    const response = await axios.post(LOGIN_END_POINT, { username: "andrew", password: "andrew" })
+    console.log(response);
+    const token = response.data.data.token;
+    cookies.set('token', token);
+    this.setState({
+      token: token
+    })
+
+    if (token) {
+      Router.push('/internal')
     }
-    
-    render() {
-        return (
-            <div>
-            <Container component="main" maxWidth="xs">
-              <CssBaseline />
-              <div>
-                <Typography component="h1" variant="h5">
-                  Sign in
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <div>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div>
+            <Typography component="h1" variant="h5">
+              Sign in
                 </Typography>
-                <form noValidate>
-                  <TextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                  />
-                  <TextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}
-                    label="Remember me"
-                  />
+            <form noValidate>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Grid container cols={1}>
+                <Grid item>
                   <Button
-                    type="submit"
                     fullWidth
                     variant="contained"
                     color="primary"
-                    to='/dashboard'
+                    onClick={() => this.onLoginClick()}
                   >
                     Sign In
                   </Button>
-                  <Grid container>
-                    <Grid item xs>
-                      <Link href="#" variant="body2">
-                        Forgot password?
-                      </Link>
-                    </Grid>
-                    <Grid item>
-                      <Link href="#" variant="body2">
-                        {"Don't have an account? Sign Up"}
-                      </Link>
-                    </Grid>
-                  </Grid>
-                </form>
-              </div>
-            </Container>
-            </div>
-          );
-    }
+                </Grid>
+                <Grid item>
+                <Button
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                  >
+                    Register
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
+        </Container>
+      </div>
+    );
+  }
 }

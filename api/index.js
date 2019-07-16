@@ -2,6 +2,7 @@ import express from 'express';
 import { urlencoded, json } from 'body-parser';
 import { connect } from 'mongoose';
 import { createServer } from 'http';
+import cors from 'cors';
 
 import users from './route/users';
 import images from './route/images';
@@ -14,11 +15,12 @@ import { serve } from './controller/ImageSocket';
 Promise = global.Promise;
 connect(config().MONGODB_CONNECTION).catch(err => { console.error('Error Connecting to MongoDB:', err.stack) })
 
-//Setup Express & Middleware
+//Setup Express & Middlewares
 const app = express();
-app.use(jwtMiddleWare)
-app.use(urlencoded({ extended: true }))
+app.use(jwtMiddleWare);
+app.use(urlencoded({ extended: true }));
 app.use(json());
+app.use(cors());
 
 //Setup Routes 
 app.get('/', (req, res) => {res.send('Encrypted Image Hosting Service API');});

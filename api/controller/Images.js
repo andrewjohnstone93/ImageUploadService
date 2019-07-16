@@ -29,7 +29,8 @@ export function getAllMetadata(req, res, next) {
     .then((images) => {
       let imageMap = [];
       images.map((image) => {
-        imageMap.push({        
+        imageMap.push({ 
+            id: image._id,       
             uploader: image.uploader,
             date: image.date,
             label: image.label,

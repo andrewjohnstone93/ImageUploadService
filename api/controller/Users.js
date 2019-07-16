@@ -10,6 +10,8 @@ const Users = mongoose.model('Users', UserSchema);
  * Create a new user with a username & password
  */
 export function create(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+
     Users.findOne({ username: req.body.username }).then((user, err) => {
 
         if (err) {
@@ -50,6 +52,8 @@ export function create(req, res, next) {
  * Take a username and password and return a JWT token
  */
 export function authenticate(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+
     if (!req.body) {
         return res.json({ success: false, message: "Request body missing" });
     }
