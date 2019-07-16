@@ -36520,26 +36520,25 @@ function _handleAuth() {
 
           case 5:
             response = _context.sent;
-            _context.next = 12;
+            _context.next = 11;
             break;
 
           case 8:
             _context.prev = 8;
             _context.t0 = _context["catch"](2);
-            // in case of error
-            //redirect to login
-            console.log(_context.t0);
 
             if (ctx.res) {
+              //Server side
               ctx.res.writeHead(302, {
                 Location: '/'
               });
               ctx.res.end();
             } else {
+              //Client side 
               next_router__WEBPACK_IMPORTED_MODULE_4___default.a.push('/');
             }
 
-          case 12:
+          case 11:
           case "end":
             return _context.stop();
         }
@@ -36551,7 +36550,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*******************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fview&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cview.js ***!
   \*******************************************************************************************************************************************************************/
@@ -36574,5 +36573,5 @@ module.exports = dll_eca3f212c83fe644b694;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=view.js.map

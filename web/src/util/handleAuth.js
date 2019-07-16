@@ -20,15 +20,14 @@ export default async function handleAuth(ctx) {
   try {
     const response = await axios.post(VERIFY_TOKEN_API, { token: token });
   } catch (err) {
-    // in case of error
-    //redirect to login
-    console.log(err);
     if (ctx.res) {
+      //Server side
       ctx.res.writeHead(302, {
         Location: '/'
       })
       ctx.res.end()
     } else {
+      //Client side 
       Router.push('/')
     }
   }

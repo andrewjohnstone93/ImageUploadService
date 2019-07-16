@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -761,26 +761,25 @@ function _handleAuth() {
 
           case 5:
             response = _context.sent;
-            _context.next = 12;
+            _context.next = 11;
             break;
 
           case 8:
             _context.prev = 8;
             _context.t0 = _context["catch"](2);
-            // in case of error
-            //redirect to login
-            console.log(_context.t0);
 
             if (ctx.res) {
+              //Server side
               ctx.res.writeHead(302, {
                 Location: '/'
               });
               ctx.res.end();
             } else {
+              //Client side 
               next_router__WEBPACK_IMPORTED_MODULE_4___default.a.push('/');
             }
 
-          case 12:
+          case 11:
           case "end":
             return _context.stop();
         }
@@ -792,7 +791,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*****************************!*\
   !*** multi ./pages/view.js ***!
   \*****************************/

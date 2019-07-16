@@ -38,11 +38,11 @@ export default class LoginForm extends React.Component {
 
     const response = await axios.post(REGISTER_END_POINT, registerDetails)
 
-    if (response.data.sucess) {
+    if (response.data.success) {
       const loginResponse = await axios.post(LOGIN_END_POINT, registerDetails)
       
       if( loginResponse.data.success) {
-        const token = response.data.data.token;
+        const token = loginResponse.data.data.token;
 
         cookies.set('token', token);
         this.setState({
@@ -50,7 +50,7 @@ export default class LoginForm extends React.Component {
         })
   
         if (token) {
-          Router.push('/internal')
+          Router.push('/view')
         }  
       } 
     } else {

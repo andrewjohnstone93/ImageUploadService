@@ -45,7 +45,7 @@ export default class LoginForm extends React.Component {
       })
 
       if (token) {
-        Router.push('/internal')
+        Router.push('/view')
       }
     } else {
       this.setState({ message: response.data.message })
