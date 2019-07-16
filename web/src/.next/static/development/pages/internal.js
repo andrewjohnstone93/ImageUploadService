@@ -36530,7 +36530,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!***************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Finternal&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cinternal.js ***!
   \***************************************************************************************************************************************************************************/
@@ -36553,5 +36553,5 @@ module.exports = dll_eca3f212c83fe644b694;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=internal.js.map

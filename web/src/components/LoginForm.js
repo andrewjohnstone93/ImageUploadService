@@ -29,7 +29,6 @@ export default class LoginForm extends React.Component {
 
   onLoginClick = async () => {
     event.preventDefault();
-    console.log("test");
     var loginDetails = {
       username: this.state.username,
       password: this.state.password,
