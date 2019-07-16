@@ -20,19 +20,19 @@ services:
 ########################################
 #            next container           #
 ########################################
-  client:
-    build: ./web
-    expose:
-      - 3000
-    environment:
-      - REACT_PORT=3000
-    ports:
-      - 3000:3000
-    volumes:
-      - ./web:/app/client
-    links:
-      - server
-    command: npm run dev
+#  client:
+#    build: ./web
+#    expose:
+#      - 3000
+#    environment:
+#      - REACT_PORT=3000
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - ./web:/app/client
+#    links:
+#      - server
+#    command: npm run dev
 ########################################
 #            Mongo container           #
 ########################################

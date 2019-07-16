@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/internal.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\internal.js"],{
 
 /***/ "../node_modules/@babel/runtime-corejs2/core-js/array/is-array.js":
 /*!************************************************************************!*\
@@ -31859,10 +31859,10 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Finternal&absolutePagePath=%2Fapp%2Fclient%2Fsrc%2Fpages%2Finternal.js!./":
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Finternal&absolutePagePath=%2Fapp%2Fclient%2Fsrc%2Fpages%2Finternal.js ***!
-  \*****************************************************************************************************************************************************************/
+/***/ "../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Finternal&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cinternal.js!./":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Finternal&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cinternal.js ***!
+  \************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36250,7 +36250,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/app/client/src/pages/internal.js";
+var _jsxFileName = "C:\\Users\\Andrew\\Desktop\\E2E Image Upload Service\\web\\src\\pages\\internal.js";
 
 
 
@@ -36531,13 +36531,13 @@ function _handleAuth() {
 /***/ }),
 
 /***/ 1:
-/*!********************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Finternal&absolutePagePath=%2Fapp%2Fclient%2Fsrc%2Fpages%2Finternal.js ***!
-  \********************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Finternal&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cinternal.js ***!
+  \***************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Finternal&absolutePagePath=%2Fapp%2Fclient%2Fsrc%2Fpages%2Finternal.js! */"../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Finternal&absolutePagePath=%2Fapp%2Fclient%2Fsrc%2Fpages%2Finternal.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Finternal&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cinternal.js! */"../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Finternal&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cinternal.js!./");
 
 
 /***/ }),

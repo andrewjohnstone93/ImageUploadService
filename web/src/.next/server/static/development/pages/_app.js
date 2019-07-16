@@ -1081,7 +1081,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/ListItem */ "@material-ui/core/ListItem");
 /* harmony import */ var _material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_ListItem__WEBPACK_IMPORTED_MODULE_10__);
 
-var _jsxFileName = "/app/client/src/components/header.js";
+var _jsxFileName = "C:\\Users\\Andrew\\Desktop\\E2E Image Upload Service\\web\\src\\components\\header.js";
 
 
 
@@ -1235,7 +1235,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/app/client/src/pages/_app.js";
+var _jsxFileName = "C:\\Users\\Andrew\\Desktop\\E2E Image Upload Service\\web\\src\\pages\\_app.js";
 
 
 

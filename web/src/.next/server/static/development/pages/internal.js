@@ -490,7 +490,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/app/client/src/pages/internal.js";
+var _jsxFileName = "C:\\Users\\Andrew\\Desktop\\E2E Image Upload Service\\web\\src\\pages\\internal.js";
 
 
 
@@ -778,7 +778,7 @@ function _handleAuth() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /app/client/src/pages/internal.js */"./pages/internal.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrew\Desktop\E2E Image Upload Service\web\src\pages\internal.js */"./pages/internal.js");
 
 
 /***/ }),

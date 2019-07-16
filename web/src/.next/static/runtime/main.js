@@ -6671,7 +6671,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      source_map_support_1.rewriteStacktrace(error, "/app/client/src/.next");
+      source_map_support_1.rewriteStacktrace(error, "C:\\Users\\Andrew\\Desktop\\E2E Image Upload Service\\web\\src\\.next");
       return error;
     }
   };
