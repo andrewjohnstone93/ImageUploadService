@@ -9,7 +9,6 @@ export function startServer(server) {
         socket.on('fileUpload', function(data) {
             //Send upload notification to client
             io.emit('fileUploaded');
-          });
-        
+          });  
     });
 }

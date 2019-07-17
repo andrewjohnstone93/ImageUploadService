@@ -7,8 +7,18 @@ import ImageSchema from '../model/Images';
 const Images = mongoose.model('Images', ImageSchema);
 
 export function uploadImage(req, res, next) {
+    const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+
+    if(!req.body.label) {
+        return res.json({ success: false, message: "Label required" });
+    }
+
     if(!req.file) {
         return res.json({ success: false, message: "Image required" });
+    }
+
+    if(!validImageTypes.includes(req.file.mimetype)) {
+        return res.json({ success: false, message: "Must be image type" });
     }
 
     const date = new Date();
@@ -31,6 +41,7 @@ export function uploadImage(req, res, next) {
 
 export function getall(req, res, next) {
     Images.find({})
+        .sort({date: 'descending'})
         .then((images) => {
             let imageMap = [];
             images.map((image) => {
