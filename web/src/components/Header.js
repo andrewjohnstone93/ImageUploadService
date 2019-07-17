@@ -27,7 +27,7 @@ const Header = () => {
       <AppBar position="absolute">
         <Toolbar>
           <Typography type="title" color="inherit" style={{ flex: 1 }}>
-            Secure Image Upload
+            Image Upload Service
           </Typography>
           
           {cookies.get("token") ? (<div>

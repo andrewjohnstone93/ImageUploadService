@@ -1008,7 +1008,7 @@ var Header = function Header() {
       lineNumber: 29
     },
     __self: this
-  }, "Secure Image Upload"), cookies.get("token") ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Image Upload Service"), cookies.get("token") ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 33

@@ -8,6 +8,10 @@ WORKDIR /app/server
 COPY package.json /app/server
 COPY package-lock.json /app/server
 
+#Make public folder
+RUN mkdir public
+RUN mkdir public/img
+
 RUN npm install
 
 #Comple ES6 to ES5

@@ -19,9 +19,9 @@ const ImageSchema = new Schema({
         required: true,
     },
     image: {
-        type: Buffer,
+        type: String,
         trim: true,
-        required: false,
+        required: true,
     }
 });
 

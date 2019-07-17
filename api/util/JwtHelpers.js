@@ -41,7 +41,6 @@ export function jwtMiddleWare(req, res, next) {
  * Middleware that checks if user is JwtAutheticated
  */
 export function proctectRoute(req,res,next){
-    console.log(req.JwtUser)
     if(req.JwtUser){
        next();
     } else{

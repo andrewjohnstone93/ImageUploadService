@@ -34,6 +34,7 @@ export default class LoginForm extends React.Component {
       password: this.state.password,
     }
 
+    console.log(loginDetails);
     const response = await axios.post(LOGIN_END_POINT, loginDetails)
 
     if (response.data.success) {

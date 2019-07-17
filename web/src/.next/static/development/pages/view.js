@@ -36293,7 +36293,7 @@ function (_React$Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                axios__WEBPACK_IMPORTED_MODULE_16___default.a.get("http://localhost:4000/images/getAllMetadata", {
+                axios__WEBPACK_IMPORTED_MODULE_16___default.a.get("http://localhost:4000/images/getAll", {
                   headers: {
                     'Authorization': 'bearer ' + cookies.get('token')
                   }
@@ -36322,25 +36322,32 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.state.images != []) {
+      if (this.state.images.length > 0) {
+        console.log(this.state.images);
         return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 37
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 38
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 39
+          },
+          __self: this
+        }, this.state.images == [] ? react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          },
+          __self: this
+        }, "No images uploaded yet.") : '', react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_8__["default"], {
           cellHeight: 300,
           cols: 6,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 41
           },
           __self: this
         }, this.state.images.map(function (image) {
@@ -36348,14 +36355,14 @@ function (_React$Component) {
             key: image.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 43
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
             src: "http://placekitten.com/300/300",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 42
+              lineNumber: 44
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -36363,44 +36370,44 @@ function (_React$Component) {
             subtitle: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 45
+                lineNumber: 47
               },
               __self: this
             }, "Uploaded: ", image.date),
             actionIcon: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
+                lineNumber: 49
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 48
+                lineNumber: 50
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12___default.a, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 49
+                lineNumber: 51
               },
               __self: this
             })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11__["default"], {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 51
+                lineNumber: 53
               },
               __self: this
             }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13___default.a, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 52
+                lineNumber: 54
               },
               __self: this
             }))),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 43
+              lineNumber: 45
             },
             __self: this
           }));
@@ -36409,19 +36416,19 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 66
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 67
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
+        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 68
           },
           __self: this
         }, "No images uploaded yet.")));
@@ -36550,7 +36557,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 8:
 /*!*******************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fview&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cview.js ***!
   \*******************************************************************************************************************************************************************/
@@ -36573,5 +36580,5 @@ module.exports = dll_eca3f212c83fe644b694;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[8,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=view.js.map

@@ -3,6 +3,7 @@ import { urlencoded, json } from 'body-parser';
 import { connect } from 'mongoose';
 import { createServer } from 'http';
 import cors from 'cors';
+import multer from 'multer';
 
 import users from './route/users';
 import images from './route/images';
@@ -18,8 +19,8 @@ connect(config().MONGODB_CONNECTION).catch(err => { console.error('Error Connect
 //Setup Express & Middlewares
 const app = express();
 app.use(jwtMiddleWare);
-app.use(urlencoded({ extended: true }));
-app.use(json());
+app.use(urlencoded({ limit: '50mb', extended: true }));
+app.use(json({ limit: '50mb' }));
 app.use(cors());
 
 //Setup Routes 

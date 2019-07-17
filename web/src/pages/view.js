@@ -24,7 +24,7 @@ class Internal extends React.Component {
   }
 
   async componentDidMount() {
-    axios.get("http://localhost:4000/images/getAllMetadata", { headers: { 'Authorization': 'bearer ' + cookies.get('token') } })
+    axios.get("http://localhost:4000/images/getAll", { headers: { 'Authorization': 'bearer ' + cookies.get('token') } })
       .then(res => {
         const images = res.data.images;
         this.setState({ images });
@@ -32,10 +32,12 @@ class Internal extends React.Component {
   }
 
   render() {
-    if (this.state.images != []) {
+    if (this.state.images.length > 0) {
+      console.log(this.state.images)
       return (
         <React.Fragment>
           <div>
+            {this.state.images == [] ? (<h1>No images uploaded yet.</h1>) : ('')}
             <GridList cellHeight={300} cols={6}>
               {this.state.images.map(image => (
                 <GridListTile key={image.id}>
@@ -57,12 +59,13 @@ class Internal extends React.Component {
             </GridList>
           </div>
         </React.Fragment>
+            
       );
     } else {
       return (
         <React.Fragment>
           <div>
-            <h1>No images uploaded yet.</h1>
+            <h3>No images uploaded yet.</h3>
           </div>
         </React.Fragment>
       );

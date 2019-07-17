@@ -5,6 +5,7 @@ services:
 ########################################
   server:
     build: ./api
+    restart: always
     expose:
       - 4000
     environment:
