@@ -7,6 +7,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { Cookies } from 'react-cookie';
+import io from 'socket.io-client';
+import handleAuth from '../util/handleAuth'
 
 import Router from 'next/router';
 
@@ -37,6 +39,12 @@ export default class Upload extends React.Component {
       const response = await axios.post(UPLOAD_END_POINT, UploadDetails, { headers: { 'Authorization': 'bearer ' + cookies.get('token') } })
 
       if (response.data.success) {
+        const socket = io('http://localhost:4000');
+
+        socket.emit('fileUpload', data => {
+          console.log("Image upload socket fired.");
+        });
+  
         Router.push('/view')
       } else {
         this.setState({ message: response.data.message })
@@ -58,6 +66,11 @@ export default class Upload extends React.Component {
     console.log(this.state);
   }
 
+  getInitialProps = async (ctx) => {
+    await handleAuth(ctx);
+  
+    return {}
+  }  
 
   render() {
     console.log(this.state)
@@ -120,4 +133,5 @@ export default class Upload extends React.Component {
       </div>
     );
   }
+  
 }

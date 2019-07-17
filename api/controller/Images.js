@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
-const ImageSchema = require('../model/Images');
+import mongoose from 'mongoose';
+import fs from 'fs';
+import path from 'path';
+
+import ImageSchema from '../model/Images';
+
 const Images = mongoose.model('Images', ImageSchema);
-const fs = require('fs');
-const path = require('path');
 
 export function uploadImage(req, res, next) {
     if(!req.file) {
@@ -20,21 +22,18 @@ export function uploadImage(req, res, next) {
 
     Images.create(imageData, function (err, result) {
         if (err) {
-            console.log(err);
             return res.json({ success: false, message: "Error creating image metadata" });
-        } else {
+        } else {    
             return res.json({ success: true, data: result });
         }
     });
 }
 
 export function getall(req, res, next) {
-
     Images.find({})
         .then((images) => {
             let imageMap = [];
             images.map((image) => {
-                console.log(image)
                 var bitmap = fs.readFileSync(image.image);
                 var base64Image = new Buffer(bitmap).toString('base64');
                 var fileType = path.extname(image.image);

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -470,19 +470,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_GridListTile__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/GridListTileBar */ "@material-ui/core/GridListTileBar");
 /* harmony import */ var _material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/IconButton */ "@material-ui/core/IconButton");
-/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/icons/Delete */ "@material-ui/icons/Delete");
-/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/icons/Share */ "@material-ui/icons/Share");
-/* harmony import */ var _material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-cookie */ "react-cookie");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! axios */ "axios");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _util_handleAuth__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../util/handleAuth */ "./util/handleAuth.js");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-cookie */ "react-cookie");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _util_handleAuth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../util/handleAuth */ "./util/handleAuth.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! socket.io-client */ "socket.io-client");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_14__);
 
 
 
@@ -499,10 +493,7 @@ var _jsxFileName = "C:\\Users\\Andrew\\Desktop\\E2E Image Upload Service\\web\\s
 
 
 
-
-
-
-var cookies = new react_cookie__WEBPACK_IMPORTED_MODULE_14__["Cookies"]();
+var cookies = new react_cookie__WEBPACK_IMPORTED_MODULE_11__["Cookies"]();
 
 var Internal =
 /*#__PURE__*/
@@ -529,28 +520,25 @@ function (_React$Component) {
       _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this2 = this;
 
+        var socket;
         return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                axios__WEBPACK_IMPORTED_MODULE_16___default.a.get("http://localhost:4000/images/getAll", {
-                  headers: {
-                    'Authorization': 'bearer ' + cookies.get('token')
-                  }
-                }).then(function (res) {
-                  var images = res.data.images;
+                this.getImages();
+                socket = socket_io_client__WEBPACK_IMPORTED_MODULE_14___default()('http://localhost:4000');
+                socket.on('fileUploaded', function (data) {
+                  console.log("Image recevied");
 
-                  _this2.setState({
-                    images: images
-                  });
+                  _this2.getImages();
                 });
 
-              case 1:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, this);
       }));
 
       function componentDidMount() {
@@ -560,34 +548,50 @@ function (_React$Component) {
       return componentDidMount;
     }()
   }, {
+    key: "getImages",
+    value: function getImages() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_12___default.a.get("http://localhost:4000/images/getAll", {
+        headers: {
+          'Authorization': 'bearer ' + cookies.get('token')
+        }
+      }).then(function (res) {
+        var images = res.data.images;
+
+        _this3.setState({
+          images: images
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.state.images.length > 0) {
-        console.log(this.state.images);
         return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 45
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 46
           },
           __self: this
         }, this.state.images == [] ? react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 47
           },
           __self: this
         }, "No images uploaded yet.") : '', react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridList__WEBPACK_IMPORTED_MODULE_8___default.a, {
-          cellHeight: 300,
-          cols: 6,
+          cellHeight: 400,
+          cols: 3,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 48
           },
           __self: this
         }, this.state.images.map(function (image) {
@@ -595,14 +599,17 @@ function (_React$Component) {
             key: image.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 43
+              lineNumber: 50
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
+            style: {
+              maxWidth: "100%"
+            },
             src: image.image,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 44
+              lineNumber: 51
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_GridListTileBar__WEBPACK_IMPORTED_MODULE_10___default.a, {
@@ -610,44 +617,13 @@ function (_React$Component) {
             subtitle: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
-              },
-              __self: this
-            }, "Uploaded: ", image.date),
-            actionIcon: react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 49
-              },
-              __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default.a, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 50
-              },
-              __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_12___default.a, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 51
-              },
-              __self: this
-            })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_11___default.a, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 53
-              },
-              __self: this
-            }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_material_ui_icons_Share__WEBPACK_IMPORTED_MODULE_13___default.a, {
-              __source: {
-                fileName: _jsxFileName,
                 lineNumber: 54
               },
               __self: this
-            }))),
+            }, "Uploaded: ", image.date),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 45
+              lineNumber: 52
             },
             __self: this
           }));
@@ -656,19 +632,19 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 64
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 65
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h3", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 66
           },
           __self: this
         }, "No images uploaded yet.")));
@@ -690,7 +666,7 @@ function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return Object(_util_handleAuth__WEBPACK_IMPORTED_MODULE_17__["default"])(ctx);
+            return Object(_util_handleAuth__WEBPACK_IMPORTED_MODULE_13__["default"])(ctx);
 
           case 2:
             return _context2.abrupt("return", {});
@@ -798,7 +774,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /*!*****************************!*\
   !*** multi ./pages/view.js ***!
   \*****************************/
@@ -840,39 +816,6 @@ module.exports = require("@material-ui/core/GridListTile");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/GridListTileBar");
-
-/***/ }),
-
-/***/ "@material-ui/core/IconButton":
-/*!***********************************************!*\
-  !*** external "@material-ui/core/IconButton" ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/IconButton");
-
-/***/ }),
-
-/***/ "@material-ui/icons/Delete":
-/*!********************************************!*\
-  !*** external "@material-ui/icons/Delete" ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons/Delete");
-
-/***/ }),
-
-/***/ "@material-ui/icons/Share":
-/*!*******************************************!*\
-  !*** external "@material-ui/icons/Share" ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons/Share");
 
 /***/ }),
 
@@ -1005,6 +948,17 @@ module.exports = require("react-cookie");
 /***/ (function(module, exports) {
 
 module.exports = require("regenerator-runtime");
+
+/***/ }),
+
+/***/ "socket.io-client":
+/*!***********************************!*\
+  !*** external "socket.io-client" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("socket.io-client");
 
 /***/ })
 

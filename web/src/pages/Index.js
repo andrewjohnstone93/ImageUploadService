@@ -5,6 +5,12 @@ import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 
 export default class extends React.Component {
+    
+  getInitialProps = async (ctx) => {
+    await handleAuth(ctx);
+  
+    return {}
+  }
 
     render() {
         return (
@@ -25,4 +31,5 @@ export default class extends React.Component {
     }
   }
 
+  
  
