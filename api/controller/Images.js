@@ -18,7 +18,7 @@ export function uploadImage(req, res, next) {
     }
 
     if(!validImageTypes.includes(req.file.mimetype)) {
-        return res.json({ success: false, message: "Must be image type" });
+        return res.json({ success: false, message: "Must be gif, jpeg, png" });
     }
 
     const date = new Date();

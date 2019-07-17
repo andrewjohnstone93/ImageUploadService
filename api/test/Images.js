@@ -9,36 +9,8 @@ chai.use(chaiHttp);
 const REGISTER_ROUTE = "/users/register/"
 const LOGIN_ROUTE = "/users/authenticate/"
 
-const CREATE_IMAGE_METADATA = "/images/createMetadata"
-const GET_IMAGE_METADATA = "/images/getAllMetadata"
-
-describe(CREATE_IMAGE_METADATA, () => {
-    const randomString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-
-    it(CREATE_IMAGE_METADATA + 'Route should allow known users that are logged in to create image metadata', (done) => {
-        //Create a new user
-        chai.request(server).post(REGISTER_ROUTE)
-            .set('content-type', 'application/x-www-form-urlencoded')
-            .send({ username: randomString, password: randomString })
-            .end((err, res) => {
-                chai.request(server).post(LOGIN_ROUTE)
-                    .set('content-type', 'application/x-www-form-urlencoded')
-                    .send({ username: randomString, password: randomString })
-                    .end((err, res) => {
-                        var loginResponse = JSON.parse(res.text);
-                        chai.request(server).post(CREATE_IMAGE_METADATA)
-                            .set('content-type', 'application/x-www-form-urlencoded')
-                            .set('Authorization', 'bearer ' + loginResponse.data.token)
-                            .send({ label: randomString })
-                            .end((err, res) => {
-                                var response = JSON.parse(res.text);
-                                chai.assert.isTrue(response.success, "Metadata not created")
-                            });
-                        done();
-                    });
-            });
-    });
-});
+const CREATE_IMAGE_METADATA = "/images/upload"
+const GET_IMAGE_METADATA = "/images/getAll"
 
 describe(CREATE_IMAGE_METADATA, () => {
     const randomString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
