@@ -41,7 +41,7 @@ class Internal extends React.Component {
             <GridList cellHeight={300} cols={6}>
               {this.state.images.map(image => (
                 <GridListTile key={image.id}>
-                  <img src="http://placekitten.com/300/300" />
+                  <img src={image.image} />
                   <GridListTileBar
                     title={image.label}
                     subtitle={<span>Uploaded: {image.date}</span>}

@@ -36359,7 +36359,7 @@ function (_React$Component) {
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
-            src: "http://placekitten.com/300/300",
+            src: image.image,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 44
@@ -36557,7 +36557,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 8:
+/***/ 0:
 /*!*******************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fview&absolutePagePath=C%3A%5CUsers%5CAndrew%5CDesktop%5CE2E%20Image%20Upload%20Service%5Cweb%5Csrc%5Cpages%5Cview.js ***!
   \*******************************************************************************************************************************************************************/
@@ -36580,5 +36580,5 @@ module.exports = dll_eca3f212c83fe644b694;
 
 /***/ })
 
-},[[8,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=view.js.map

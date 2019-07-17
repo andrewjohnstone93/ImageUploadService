@@ -3,6 +3,10 @@
     "static/development/dll/dll_9f052745d9378ee03f88.js"
   ],
   "pages": {
+    "/": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/_app": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
@@ -11,7 +15,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/upload": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

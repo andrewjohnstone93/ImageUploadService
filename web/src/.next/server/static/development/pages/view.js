@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -599,7 +599,7 @@ function (_React$Component) {
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
-            src: "http://placekitten.com/300/300",
+            src: image.image,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 44
@@ -798,7 +798,7 @@ function _handleAuth() {
 
 /***/ }),
 
-/***/ 6:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/view.js ***!
   \*****************************/
